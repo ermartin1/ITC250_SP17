@@ -20,7 +20,7 @@
 
 <form action = "<?php echo htmlspecialchars ($_SERVER['PHP_SELF']); ?>"
 method="post"> 
-<input type="text" name="temperature">
+<input type="text" name="temperature" required>
 <span class ="error"> <?php echo $tempErr;?></span>
 <input type = "submit" name = "submit" value="Temperature Converter"> 
  </form> 
@@ -40,7 +40,7 @@ method="post">
  </form>  -->
 
 <?php 
- /*  
+ /*   //couldn't get this part to work
 $tempErr = "";
 $temp = "";
  
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
 
     
- if(isset($_POST['submit'])){
+ if(isset($_POST['submit'])){ //convert celcius to fahrenheit and kelvin
      
      $celcius = $_POST['temperature'];
      $fahrenheit = ($celcius * 1.8) + 32;
@@ -65,11 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  }
 
         
- if(isset($_POST['submit'])){ 
+ if(isset($_POST['submit'])){ //convert fahrenheit to celcius and kelvin
      
 /*  $format = number_format($fahrenheit, 2, '.', '');   
   $format = number_format($celcius, 2, '.', '');  
-  $format = number_format($kelvin, 2, '.', '');  */
+  $format = number_format($kelvin, 2, '.', '');  */ //attempted to format output
      
      $fahrenheit = $_POST['temperature'];
      $celcius = ($fahrenheit - 32) / 1.8;
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // echo $format;
  }
  
- if(isset($_POST['submit'])){
+ if(isset($_POST['submit'])){ //converted kelvin to celvius and fahrenheit
      
      $kelvin = $_POST['temperature'];
      $celcius = $kelvin - 273.15;
